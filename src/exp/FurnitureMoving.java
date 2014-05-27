@@ -66,15 +66,15 @@ public class FurnitureMoving extends Base {
 	
 	private static final boolean generateAll = true;
 
-    IntVar [] starts;
-    IntVar [] endTimes;
+        IntVar [] starts;
+        IntVar [] endTimes;
     
 	@Override
 	public void model() {
 		
 		store = new Store();
 
-		IntVar numPersons = new IntVar(store, "numPersons", 2, 5); // will be minimized
+		IntVar numPersons = new IntVar(store, "numPersons", 1, 8); // will be minimized
 		IntVar maxTime    = new IntVar(store, "maxTime", 60,60);
 
 		// Start times

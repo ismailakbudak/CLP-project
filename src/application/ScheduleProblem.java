@@ -1,43 +1,22 @@
 /**
- *  Diet.java 
+ *  ScheduleProblem.java 
  *  This file is part of JaCoP.
  *
  *  JaCoP is a Java Constraint Programming solver. 
  *	
- *	Copyright (C) 2008 Hakan Kjellerstrand and Radoslaw Szymanek
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU Affero General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Affero General Public License for more details.
- *  
- *  Notwithstanding any other provision of this License, the copyright
- *  owners of this work supplement the terms of this License with terms
- *  prohibiting misrepresentation of the origin of this work and requiring
- *  that modified versions of this work be marked in reasonable ways as
- *  different from the original version. This supplement of the license
- *  terms is in accordance with Section 7 of GNU Affero General Public
- *  License version 3.
- *
- *  You should have received a copy of the GNU Affero General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  Copyright (C) 2014 Ismail AKBUDAK
  *
  */
 
 package application;
 
-import java.util.ArrayList;
+import  java.util.ArrayList;
 import  org.jacop.constraints.SumWeight;
 import  org.jacop.constraints.XgteqC;
 import  org.jacop.core.IntVar;
 import  org.jacop.core.Store;
 import  org.jacop.core.Var;
-import core.Base;
+import  core.Base;
 
 /**
  *
@@ -69,13 +48,11 @@ import core.Base;
  *  Pineapple cheesecake (1 piece) 500           0            4      5
  *
  * """  
- *
- * Compare with my MiniZinc model:
- * http://www.hakank.org/minizinc/diet1.mzn
+ * 
  *
  */
 
-public class NewClass extends Base {
+public class ScheduleProblem extends Base {
 
     IntVar[] x;
 
@@ -100,7 +77,7 @@ public class NewClass extends Base {
         m = 4; // number of food types
 
         int[] price   = {50, 20, 30, 80}; // in cents
-        int[] limits  = {500, 6, 10, 8};  // minimum required for a diet
+        int[] limits  = {100, 12, 10, 22};  // minimum required for a diet
 
                     // Food: 0   1     2    3
         int[][] matrix = {{400, 200, 150, 500},  // calories
@@ -140,7 +117,7 @@ public class NewClass extends Base {
      */
     public static void main(String args[]) {
 
-      NewClass diet = new NewClass();
+      ScheduleProblem diet = new ScheduleProblem();
       diet.model();
       
       if (diet.searchOptimal()) {
