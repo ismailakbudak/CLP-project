@@ -29,7 +29,7 @@
  *
  */
 
-package application;
+package exp;
 
 import core.Base;
 import org.jacop.constraints.Circuit;
